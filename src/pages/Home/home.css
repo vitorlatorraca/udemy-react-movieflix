@@ -1,10 +1,10 @@
 
-.lista_filmes{
+.lista-filmes{
     max-width: 800px;
     margin: 14px auto;
 }
 
-.lista_filmes article{
+.lista-filmes article{
     width: 100%;
     background-color: white;
     padding: 15px;
