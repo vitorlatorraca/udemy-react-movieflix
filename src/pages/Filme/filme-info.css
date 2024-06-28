@@ -1,5 +1,6 @@
 
 .filme-info{
+    margin: 0 auto;
     margin-top: 18px;
     display: flex;
     flex-direction: column;
@@ -47,6 +48,7 @@
 .area-buttons a{
     text-decoration: none;
     color: black;
+    transition: all 0.5s;
 }
 
 .area-buttons a:hover{
