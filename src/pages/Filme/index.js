@@ -39,8 +39,8 @@ function Filme() {
     }
 
     return (
-        <div>
-            <h1>ACESSANDO FILME {id}</h1>
+        <div className="filme-info">
+            <img src={`https://image.tmdb.org/t/p/original/${filme.poster_path}`}/>
         </div>
     )
 }
