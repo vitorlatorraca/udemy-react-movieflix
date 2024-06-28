@@ -14,7 +14,8 @@ function Filme() {
                 }
             })
             .then((response) => {
-                console.log(response);
+                setFilme(response.data)
+                setLoading(false);
             })
             .catch(() => {
                 console.log("Erro ao carregar o filme");
@@ -22,7 +23,20 @@ function Filme() {
         }
 
         loadFilme();  
+
+
+        return () => {
+            console.log("Componente foi desmontado")
+        }
     }, []);  
+
+    if(loading){
+        return(
+            <div className="filme-info">
+                <h1>Carregando...</h1>
+            </div>
+        )
+    }
 
     return (
         <div>
