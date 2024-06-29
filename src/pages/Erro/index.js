@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom"
-import './erro.css'
+import { Link } from "react-router-dom";
+import './erro.css';
 
-function Erro(){
-    return(
+function Erro() {
+    return (
         <div className="not-found">
             <h1>404</h1>
-            <h2>Página não encontrada</h2>
-            <Link to="/"> Veja todos os filmes</Link>
+            <h2>Page Not Found</h2>
+            <Link to="/"> See all movies</Link>
         </div>
-    )
+    );
 }
 
-export default Erro
+export default Erro;
