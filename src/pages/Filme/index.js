@@ -12,7 +12,7 @@ function Filme() {
     const [filme, setFilme] = useState();
     const [loading, setLoading] = useState(true)
     
-    useEffect(() => {
+    useEffect(() => {  // Correção aqui: fechamento correto do useEffect
         async function loadFilme() {
             await api.get(`/movie/${id}`, {
                 params: {
@@ -24,7 +24,7 @@ function Filme() {
                 setLoading(false);
             })
             .catch(() => {
-                console.log("Error loading the movie");
+                console.log("Erro ao carregar o filme");
                 navigate("/", { replace: true })
                 return;
             })
@@ -32,8 +32,9 @@ function Filme() {
 
         loadFilme();  
 
+
         return () => {
-            console.log("Component has been unmounted")
+            console.log("Componente foi desmontado")
         }
     }, [navigate, id]);  
 
@@ -45,20 +46,20 @@ function Filme() {
         const hasFilme = filmesSalvos.some( (filmesSalvo) => filmesSalvo.id  === filme.id)
 
         if(hasFilme){
-            toast.warn("This movie is already in your list")
+            toast.warn("Esse filme ja esta na sua lista")
             return;
         }
 
         filmesSalvos.push(filme);
         localStorage.setItem("@primeflix", JSON.stringify(filmesSalvos));
-        toast.success("Movie saved successfully")
+        toast.success("Filme salvo com sucesso")
 
     }
 
     if(loading){
         return(
             <div className="filme-info">
-                <h1>Loading...</h1>
+                <h1>Carregando...</h1>
             </div>
         )
     }
@@ -68,10 +69,10 @@ function Filme() {
             <h1>{filme.title}</h1>
             <img src={`https://image.tmdb.org/t/p/original/${filme.backdrop_path}`} alt={filme.title}/>
             
-            <h3>Synopsis</h3>
+            <h3>Sinopse</h3>
             <span>{filme.overview}</span>
 
-            <strong>Rating: {filme.vote_average} /10 </strong>
+            <strong>Avaliacao: {filme.vote_average} /10 </strong>
 
             <div className="area-buttons">
                 <button onClick={salvarFilme}>Save</button>
